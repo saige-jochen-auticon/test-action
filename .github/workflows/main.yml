@@ -22,9 +22,6 @@ jobs:
                 "require_code_owner_reviews": true,
                 "required_approving_review_count": 2
               },
-              "restrictions": {
-                "users": ["saige-jochen-auticon"],
-              }
             }'
             echo "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/branches/main/protection"
             echo "$Github_token "
