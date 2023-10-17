@@ -14,7 +14,7 @@ jobs:
             -X PUT \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: token  $Github_token" \
-            https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/branches/main/protection \
+            https://api.github.com/repos/${{ github.repository }}/branches/main/protection \
             -d '{
               "enforce_admins": true,
               "required_pull_request_reviews": {
