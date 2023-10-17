@@ -16,8 +16,8 @@ jobs:
             -H "Authorization: token  $Github_token" \
             https://api.github.com/repos/${{ github.repository }}/branches/main/protection \
             -d '{
-              required_status_checks: {
-                strict: false,
+              "required_status_checks": {
+                "strict": false,
                 "contexts":["continuous-integration/travis-ci"]
               },
               "enforce_admins": true,
