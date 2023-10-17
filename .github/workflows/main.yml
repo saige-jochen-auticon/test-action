@@ -24,7 +24,7 @@ jobs:
               },
               "restrictions": {
                 "users": ["saige-jochen-auticon"],
-                "teams": ["auticon-germany"],
+                "teams": ["auticon-germany"]
               }
             }'
             echo "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/branches/main/protection"
