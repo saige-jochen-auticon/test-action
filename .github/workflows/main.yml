@@ -1,0 +1,33 @@
+name: Setup Branch Protection
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Protect Branches
+        run: |
+          curl \
+            -X PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: token  $Github_token" \
+            https://api.github.com/repos/${{ github.repository }}/branches/main/protection \
+            -d '{
+              "enforce_admins": true,
+              "required_pull_request_reviews": {
+                "dismiss_stale_reviews": true,
+                "require_code_owner_reviews": true,
+                "required_approving_review_count": 2
+              },
+              "restrictions": {
+                "users": ["saige-jochen-auticon"],
+              }
+            }'
+            echo "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/branches/main/protection"
+            echo "owner: ${{ github.repository_owner }} repo:${{ github.repository }}"
+    env: 
+        Github_token: ${{ secrets.GITHUB_TOKEN }}
