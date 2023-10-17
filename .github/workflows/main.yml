@@ -16,6 +16,7 @@ jobs:
             -H "Authorization: token  $Github_token" \
             https://api.github.com/repos/${{ github.repository }}/branches/main/protection \
             -d '{
+              required_status_checks : false,
               "enforce_admins": true,
               "required_pull_request_reviews": {
                 "dismiss_stale_reviews": true,
