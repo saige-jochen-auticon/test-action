@@ -29,4 +29,4 @@ jobs:
             echo "https://api.github.com/repos/${{ github.repository_owner }}/${{ github.repository }}/branches/main/protection"
             echo "$Github_token "
     env: 
-        Github_token: ${{ PERSONAL_TOKEN_GITHUB }}
+        Github_token: ${{ secrets.PERSONAL_TOKEN_GITHUB }}
